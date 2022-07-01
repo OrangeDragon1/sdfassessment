@@ -27,7 +27,6 @@ public class Main {
             data = br.readLine();
             if (null != data) {
                 String letter = processor.writeLetter(data);
-                System.out.println(letter);
                 bw.write(letter);
             }
         }
