@@ -38,15 +38,20 @@ public class Main {
         System.out.println(averageOfIntegers);
 
         oos.writeUTF(requestId);
+        oos.flush();
         oos.writeUTF("KokSiang");
+        oos.flush();
         oos.writeUTF("wcks095@gmail.com");
+        oos.flush();
         oos.writeFloat(averageOfIntegers);
+        oos.flush();
 
         boolean newResponse = ois.readBoolean();
         if (newResponse) {
             System.out.println("SUCCESS");
         } else {
             String errorMessage = ois.readUTF();
+            System.out.println(errorMessage);
             System.out.println("FAILED");
         }
 
