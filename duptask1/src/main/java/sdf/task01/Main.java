@@ -1,9 +1,12 @@
 package sdf.task01;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -11,13 +14,15 @@ public class Main {
         String dataInput2 = args[1];
         String replaceTemplate;
 
+        Processor processor = new Processor();
+
         Reader r1 = new FileReader(dataInput1);
         BufferedReader br1 = new BufferedReader(r1);
         Reader r2 = new FileReader(dataInput2);
         BufferedReader br2 = new BufferedReader(r2);
 
-        // Writer w = new FileWriter("wait a minute");
-        // BufferedWriter bw = new BufferedWriter(w);
+        Writer w = new FileWriter("wait a minute");
+        BufferedWriter bw = new BufferedWriter(w);
 
         // remove first line
         String data = br1.readLine();
@@ -27,7 +32,6 @@ public class Main {
                 String[] dataTerms = data.split(",");
                 String firstNameOrSalutations = dataTerms[0];
                 String lastName = dataTerms[1];
-                System.out.println(lastName);
                 String addressOrPackage = dataTerms[2];
                 String yearsOrPrice = dataTerms[3];
                 String[] addressOrPackageTerms = addressOrPackage.split("\\\\n");
