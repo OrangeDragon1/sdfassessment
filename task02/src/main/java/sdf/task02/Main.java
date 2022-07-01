@@ -20,6 +20,7 @@ public class Main {
 
         System.out.println("Connecting to task02.chuklee.com at port 80...");
         Socket sock = new Socket("task02.chuklee.com", 80);
+        sock.setSoTimeout(15000);
         System.out.println("Connected.");
 
         OutputStream os = sock.getOutputStream();
@@ -35,7 +36,7 @@ public class Main {
         responseTerms = response.split(" ");
         requestId = responseTerms[0];
         averageOfIntegers = calculator.calculateAverage(responseTerms[1]);
-        System.out.println(averageOfIntegers);
+        // System.out.println(averageOfIntegers);
 
         oos.writeUTF(requestId);
         oos.flush();
